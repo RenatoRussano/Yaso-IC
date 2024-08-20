@@ -9,7 +9,7 @@ export default function Footer({ navigation }) {
           style={styles.button}
           onPress={() => navigation.navigate('Medicamentos')}
         >
-          <Image source={require('../assets/medicamentos.png')} style={styles.logo} />
+          <Image source={require('../key-visual/medicamentos.png')} style={styles.logo} />
           <Text style={styles.label}>medicamentos{'\n'} e alergias</Text>
         </TouchableOpacity>
 
@@ -17,7 +17,7 @@ export default function Footer({ navigation }) {
           style={styles.button}
           onPress={() => navigation.navigate('Consultas')}
         >
-          <Image source={require('../assets/consultas.png')} style={styles.logo} />
+          <Image source={require('../key-visual/consultas.png')} style={styles.logo} />
           <Text style={styles.label}>consultas</Text>
         </TouchableOpacity>
 
@@ -25,7 +25,7 @@ export default function Footer({ navigation }) {
           style={styles.button}
           onPress={() => navigation.navigate('Home')}
         >
-          <Image source={require('../assets/home.png')} style={styles.logo} />
+          <Image source={require('../key-visual/home.png')} style={styles.logo} />
           <Text style={styles.label}>home</Text>
         </TouchableOpacity>
 
@@ -33,7 +33,7 @@ export default function Footer({ navigation }) {
           style={styles.button}
           onPress={() => navigation.navigate('Exames')}
         >
-          <Image source={require('../assets/exames.png')} style={styles.logo} />
+          <Image source={require('../key-visual/exames.png')} style={styles.logo} />
           <Text style={styles.label}>exames</Text>
         </TouchableOpacity>
 
@@ -41,7 +41,7 @@ export default function Footer({ navigation }) {
           style={styles.button}
           onPress={() => navigation.navigate('Vacinas')}
         >
-          <Image source={require('../assets/vacinas.png')} style={styles.logo} />
+          <Image source={require('../key-visual/vacinas.png')} style={styles.logo} />
           <Text style={styles.label}>vacinas</Text>
         </TouchableOpacity>
       </View>
