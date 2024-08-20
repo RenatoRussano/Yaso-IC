@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
 
 export default function Footer({ navigation }) {
   return (
@@ -8,38 +7,42 @@ export default function Footer({ navigation }) {
       <View style={styles.content}>
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('Login')}
+          onPress={() => navigation.navigate('Medicamentos')}
         >
-          <FontAwesome5 name="user" size={24} color="#808080" style={styles.icon} />
-          <Text style={styles.label}>Login</Text>
+          <Image source={require('../assets/medicamentos.png')} style={styles.logo} />
+          <Text style={styles.label}>medicamentos{'\n'} e alergias</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('Consultas')}
+        >
+          <Image source={require('../assets/consultas.png')} style={styles.logo} />
+          <Text style={styles.label}>consultas</Text>
+        </TouchableOpacity>
+
         <TouchableOpacity
           style={styles.button}
           onPress={() => navigation.navigate('Home')}
         >
-          <FontAwesome5 name="home" size={24} color="#808080" style={styles.icon} />
-          <Text style={styles.label}>Home</Text>
+          <Image source={require('../assets/home.png')} style={styles.logo} />
+          <Text style={styles.label}>home</Text>
         </TouchableOpacity>
+
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('About')}
+          onPress={() => navigation.navigate('Exames')}
         >
-          <FontAwesome5 name="book-open" size={24} color="#808080" style={styles.icon} />
-          <Text style={styles.label}>Sobre</Text>
+          <Image source={require('../assets/exames.png')} style={styles.logo} />
+          <Text style={styles.label}>exames</Text>
         </TouchableOpacity>
+
         <TouchableOpacity
           style={styles.button}
-          onPress={() => navigation.navigate('Whiteboard')}
+          onPress={() => navigation.navigate('Vacinas')}
         >
-          <FontAwesome5 name="chalkboard" size={24} color="#808080" style={styles.icon} />
-          <Text style={styles.label}>Whiteboard</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('Team')}
-        >
-          <FontAwesome5 name="users" size={24} color="#808080" style={styles.icon} />
-          <Text style={styles.label}>Equipe</Text>
+          <Image source={require('../assets/vacinas.png')} style={styles.logo} />
+          <Text style={styles.label}>vacinas</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -48,29 +51,37 @@ export default function Footer({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#FFFFFF',
     position: 'absolute',
     bottom: 0,
     left: 0,
     right: 0,
+    paddingHorizontal: 0,
+    paddingVertical: 0,
   },
   content: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    alignItems: 'center',
-    width: '90%',
-    marginHorizontal: '5%',
-    paddingVertical: 10,
+    flexwrap: 'nowrap',
+    alignItems: 'stretch',
+    paddingVertical: 15,
+    paddingHorizontal: 15,
+    borderTopWidth: 5,
+    borderTopColor: '#6030A0',
   },
   button: {
     alignItems: 'center',
+    width: 100,
   },
   label: {
-    fontSize: 12,
-    color: '#808080',
-    marginTop: 5, // Margem superior para o texto
+    fontSize: 10,
+    color: '#A5A5A5',
+    marginTop: 5,
+    textAlign: 'center',
   },
-  icon: {
-    marginTop: 5, // Margem superior para o ícone
+  logo: {
+    width: 31,
+    height: 35,
+    marginBottom: 5,
   },
 });
