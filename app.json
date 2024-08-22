@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "cp02-sick-mode",
-    "slug": "snack-6d0409b3-e1b7-4a93-8e24-dc0f23d9dd3d",
+    "name": "yaso-ic",
+    "slug": "snack-d9c7230f-7a47-4c5a-9f6c-e77da0627cfe",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,9 +11,6 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
     "ios": {
       "supportsTablet": true
     },
@@ -21,16 +18,10 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      },
-      "package": "com.rrussano.snack6d0409b3e1b74a938e24dc0f23d9dd3d"
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "extra": {
-      "eas": {
-        "projectId": "0cf2782d-23c2-4da6-9a5f-c28757477b4b"
-      }
     }
   }
 }

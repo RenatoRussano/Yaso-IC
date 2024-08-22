@@ -1,48 +1,52 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-export default function Footer({ navigation }) {
+export default function Footer() {
+  const navigation = useNavigation(); 
+
   return (
-    <View style={styles.container}>
-      <View style={styles.content}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('Medicamentos')}
-        >
-          <Image source={require('../key-visual/medicamentos.png')} style={styles.logo} />
-          <Text style={styles.label}>medicamentos{'\n'} e alergias</Text>
+    <View style={styles.footerContainer}>
+      <View style={styles.line} />
+      <View style={styles.iconRow}>
+        <TouchableOpacity style={styles.iconItem} onPress={() => navigation.navigate('Medicamentos')}>
+          <Image
+            source={{ uri: 'https://i.ibb.co/h22GhSw/medicamentos.png' }} 
+            style={styles.icon}
+          />
+          <Text style={styles.iconText}>medicamentos</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('Consultas')}
-        >
-          <Image source={require('../key-visual/consultas.png')} style={styles.logo} />
-          <Text style={styles.label}>consultas</Text>
+        <TouchableOpacity style={styles.iconItem} onPress={() => navigation.navigate('Consultas')}>
+          <Image
+            source={{ uri: 'https://i.ibb.co/ThQ7SDh/consultas.png' }} 
+            style={styles.icon}
+          />
+          <Text style={styles.iconText}>consultas</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('Home')}
-        >
-          <Image source={require('../key-visual/home.png')} style={styles.logo} />
-          <Text style={styles.label}>home</Text>
+        <TouchableOpacity style={styles.iconItem} onPress={() => navigation.navigate('Home')}>
+          <Image
+            source={{ uri: 'https://i.ibb.co/TqKkVrY/home.png' }} 
+            style={styles.iconHome}
+          />
+          <Text style={styles.iconText}>home</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('Exames')}
-        >
-          <Image source={require('../key-visual/exames.png')} style={styles.logo} />
-          <Text style={styles.label}>exames</Text>
+        <TouchableOpacity style={styles.iconItem} onPress={() => navigation.navigate('Exames')}>
+          <Image
+            source={{ uri: 'https://i.ibb.co/KNb2tMS/exames.png' }} 
+            style={styles.icon}
+          />
+          <Text style={styles.iconText}>exames</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('Vacinas')}
-        >
-          <Image source={require('../key-visual/vacinas.png')} style={styles.logo} />
-          <Text style={styles.label}>vacinas</Text>
+        <TouchableOpacity style={styles.iconItem} onPress={() => navigation.navigate('Vacinas')}>
+          <Image
+            source={{ uri: 'https://i.ibb.co/XpGyjg3/vacinas.png' }} 
+            style={styles.icon}
+          />
+          <Text style={styles.iconText}>vacinas</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -50,38 +54,37 @@ export default function Footer({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  footerContainer: {
     backgroundColor: '#FFFFFF',
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    paddingHorizontal: 0,
-    paddingVertical: 0,
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderTopColor: '#6A1B9A', 
   },
-  content: {
+
+  iconRow: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    flexwrap: 'nowrap',
-    alignItems: 'stretch',
-    paddingVertical: 15,
-    paddingHorizontal: 15,
-    borderTopWidth: 5,
-    borderTopColor: '#6030A0',
+    justifyContent: 'space-between', 
+    alignItems: 'flex-end', 
+    paddingVertical: 10,
+    paddingHorizontal: 20, 
   },
-  button: {
+  iconItem: {
     alignItems: 'center',
-    width: 100,
+    flex: 1, 
   },
-  label: {
-    fontSize: 10,
-    color: '#A5A5A5',
-    marginTop: 5,
-    textAlign: 'center',
+  icon: {
+    width: 40,
+    height: 40,
+    marginBottom: 5,
   },
-  logo: {
-    width: 31,
+  iconHome: {
+    width: 35,
     height: 35,
     marginBottom: 5,
+  },
+  iconText: {
+    color: '#7E7E7E',
+    fontSize: 12,
+    textAlign: 'center',
   },
 });

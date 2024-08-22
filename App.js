@@ -1,25 +1,27 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import LoginScreen from './screens/LoginScreen';
-import AboutScreen from './screens/AboutScreen';
-import HomeScreen from './screens/HomeScreen';
-import TeamScreen from './screens/TeamScreen';
-import WhiteboardScreen from './screens/WhiteboardScreen';
-import ForgotPassword from './screens/ForgotPassword';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './screens/HomeScreen'; 
+import MedicamentosScreen from './screens/MedicamentosScreen'; 
+import ConsultasScreen from './screens/ConsultasScreen'; 
+import ExamesScreen from './screens/ExamesScreen'; 
+import VacinasScreen from './screens/VacinasScreen'; 
+import AdicionarMedicamentoScreen from './screens/AdicionarMedicamentoScreen';
+import AdicionarAlergiaScreen from './screens/AdicionarAlergiaScreen'; 
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={LoginScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="About" component={AboutScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Team" component={TeamScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Whiteboard" component={WhiteboardScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
+      <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Medicamentos" component={MedicamentosScreen} />
+        <Stack.Screen name="AdicionarMedicamento" component={AdicionarMedicamentoScreen} />
+        <Stack.Screen name="AdicionarAlergia" component={AdicionarAlergiaScreen} />
+        <Stack.Screen name="Consultas" component={ConsultasScreen} />
+        <Stack.Screen name="Exames" component={ExamesScreen} />
+        <Stack.Screen name="Vacinas" component={VacinasScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
