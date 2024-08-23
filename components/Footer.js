@@ -58,14 +58,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     paddingVertical: 10,
     borderTopWidth: 1,
-    borderTopColor: '#6A1B9A', 
+    borderTopColor: '#D9D9D9', 
   },
 
   iconRow: {
     flexDirection: 'row',
     justifyContent: 'space-between', 
     alignItems: 'flex-end', 
-    paddingVertical: 10,
+    paddingVertical: 3,
     paddingHorizontal: 20, 
   },
   iconItem: {
@@ -73,13 +73,13 @@ const styles = StyleSheet.create({
     flex: 1, 
   },
   icon: {
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 30,
     marginBottom: 5,
   },
   iconHome: {
-    width: 35,
-    height: 35,
+    width: 28,
+    height: 28,
     marginBottom: 5,
   },
   iconText: {
