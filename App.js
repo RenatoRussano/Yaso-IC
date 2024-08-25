@@ -10,6 +10,7 @@ import VacinasScreen from './screens/VacinasScreen';
 import AdicionarMedicamentoScreen from './screens/AdicionarMedicamentoScreen';
 import AdicionarAlergiaScreen from './screens/AdicionarAlergiaScreen'; 
 import AdicionarConsultaScreen from './screens/AdicionarConsultaScreen'
+import AdicionarExameScreen from './screens/AdicionarExameScreen'
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -24,6 +25,7 @@ export default function App() {
         <Stack.Screen name="Consultas" component={ConsultasScreen} />
         <Stack.Screen name="AdicionarConsulta" component={AdicionarConsultaScreen} />
         <Stack.Screen name="Exames" component={ExamesScreen} />
+        <Stack.Screen name="AdicionarExame" component={AdicionarExameScreen} />
         <Stack.Screen name="Vacinas" component={VacinasScreen} />
       </Stack.Navigator>
     </NavigationContainer>
