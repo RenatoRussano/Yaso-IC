@@ -25,10 +25,10 @@ export default function MedicamentosScreen({ navigation, route }) {
     loadData();
   }, []);
 
-  const saveData = async (medicamentos, alergias) => {
+  const saveData = async (updatedMedicamentos, updatedAlergias) => {
     try {
-      await AsyncStorage.setItem('@medicamentos', JSON.stringify(medicamentos));
-      await AsyncStorage.setItem('@alergias', JSON.stringify(alergias));
+      await AsyncStorage.setItem('@medicamentos', JSON.stringify(updatedMedicamentos));
+      await AsyncStorage.setItem('@alergias', JSON.stringify(updatedAlergias));
     } catch (e) {
       console.error("Falha ao salvar dados no AsyncStorage", e);
     }
@@ -43,6 +43,18 @@ export default function MedicamentosScreen({ navigation, route }) {
       navigation.navigate('AdicionarMedicamento', { item });
     } else {
       navigation.navigate('AdicionarAlergia', { item });
+    }
+  };
+
+  const handleDelete = (id, isMedicamento) => {
+    if (isMedicamento) {
+      const updatedMedicamentos = medicamentos.filter(item => item.id !== id);
+      setMedicamentos(updatedMedicamentos);
+      saveData(updatedMedicamentos, alergias);
+    } else {
+      const updatedAlergias = alergias.filter(item => item.id !== id);
+      setAlergias(updatedAlergias);
+      saveData(medicamentos, updatedAlergias);
     }
   };
 
@@ -96,6 +108,9 @@ export default function MedicamentosScreen({ navigation, route }) {
                 <TouchableOpacity onPress={() => handleEdit(item, true)} style={styles.actionButton}>
                   <Ionicons name="pencil" size={16} color="gray" />
                 </TouchableOpacity>
+                <TouchableOpacity onPress={() => handleDelete(item.id, true)} style={styles.actionButton}>
+                  <Ionicons name="trash" size={16} color="gray" />
+                </TouchableOpacity>
                 <TouchableOpacity onPress={() => toggleItem(item.id)} style={styles.actionButton}>
                   <Ionicons name={expandedItem === item.id ? "chevron-up" : "chevron-down"} size={20} color="gray" />
                 </TouchableOpacity>
@@ -119,6 +134,9 @@ export default function MedicamentosScreen({ navigation, route }) {
               <View style={styles.actions}>
                 <TouchableOpacity onPress={() => handleEdit(item, false)} style={styles.actionButton}>
                   <Ionicons name="pencil" size={16} color="gray" />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => handleDelete(item.id, false)} style={styles.actionButton}>
+                  <Ionicons name="trash" size={16} color="gray" />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => toggleItem(item.id)} style={styles.actionButton}>
                   <Ionicons name={expandedItem === item.id ? "chevron-up" : "chevron-down"} size={20} color="gray" />
@@ -289,16 +307,5 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     textAlign: 'center',
-  },
-  clearButton: {
-    backgroundColor: 'red',
-    padding: 10,
-    borderRadius: 10,
-    marginTop: 20,
-    alignSelf: 'center',
-  },
-  clearButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
   },
 });

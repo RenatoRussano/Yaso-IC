@@ -135,7 +135,7 @@ export default function AdicionarExameScreen({ navigation, route }) {
             <Ionicons name="search-outline" size={20} color="gray" />
           </TouchableOpacity>
         </View>
-        <Text style={styles.sectionTitle}>Cadastrar um novo exame</Text>
+        <Text style={styles.sectionTitle}>adicionar um novo exame</Text>
 
         <Text style={styles.inputLabel}>Nome do exame</Text>
         <TextInput
