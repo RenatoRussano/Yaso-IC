@@ -55,6 +55,12 @@ export default function ConsultasScreen({ navigation, route }) {
     }
   }, [route.params?.newItem, handleSave]);
 
+  const handleDelete = (id) => {
+    const updatedConsultas = consultas.filter(item => item.id !== id);
+    setConsultas(updatedConsultas);
+    saveData(updatedConsultas);
+  };
+
   return (
     <View style={styles.container}>
       <Header />
@@ -79,6 +85,9 @@ export default function ConsultasScreen({ navigation, route }) {
               <View style={styles.actions}>
                 <TouchableOpacity onPress={() => handleEdit(item)} style={styles.actionButton}>
                   <Ionicons name="pencil" size={16} color="gray" />
+                </TouchableOpacity>
+                 <TouchableOpacity onPress={() => handleDelete(item.id)} style={styles.actionButton}>
+                  <Ionicons name="trash" size={16} color="gray" />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => toggleItem(item.id)} style={styles.actionButton}>
                   <Ionicons name={expandedItem === item.id ? "chevron-up" : "chevron-down"} size={20} color="gray" />
